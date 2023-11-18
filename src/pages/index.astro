@@ -1,5 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GaugeTemp from '../components/charts/Gauge.svelte';
+import LineTemp from '../components/charts/LineChart.svelte'
+import Section from '../components/Section.svelte'
 ---
 
-<Layout title="YAND" />
+<Layout title="Dashboard">
+    <Section>
+        <div class="w-fit h-fit text-center mx-auto">
+            <p class="m-0 p-0">Gauge 1</p>
+            <GaugeTemp name="chart1" value={56} client:only={'svelte'} />
+        </div>
+        <div class="w-fit h-fit text-center mx-auto">
+            <p class="m-0 p-0">Chart 1</p>
+            <LineTemp xData={[1,2,3,4,5,6]} yData={[1,24,56,75,16,72]} client:only={'svelte'} />
+        </div>
+    </Section>
+    <Section>
+        <div class="w-fit h-fit text-center mx-auto">
+            <p class="m-0 p-0">Gauge 2</p>
+            <GaugeTemp name="chart2" value={96} client:only={'svelte'} />
+        </div>
+        <div class="w-fit h-fit text-center mx-auto">
+            <p class="m-0 p-0">Chart 2</p>
+            <LineTemp xData={[1,2,3]} yData={[1,24,56]} client:only={'svelte'} />
+        </div>
+    </Section>
+</Layout>

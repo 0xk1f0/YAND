@@ -20,4 +20,25 @@ const { title } = Astro.props;
         <slot />
     </body>
 </html>
-<style is:global></style>
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        @apply
+        p-0
+        m-0;
+    }
+
+    body {
+        @apply
+        m-0
+        p-0
+        flex
+        flex-col
+        min-h-screen;
+    }
+</style>
