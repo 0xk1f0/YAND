@@ -1,29 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import GaugeTemp from '../components/charts/Gauge.svelte';
-import LineTemp from '../components/charts/LineChart.svelte'
-import Section from '../components/Section.svelte'
+import AppSection from '../components/sections/AppSection.svelte';
+import WidgetSection from '../components/sections/WidgetSection.svelte';
+import AppCategory from '../components/AppCategory.svelte';
+import AppCard from '../components/AppCard.svelte';
+import DateTime from '../components/widgets/DateTime.svelte';
+
+// automatically scale columns and rows
+let auto: boolean = true;
 ---
 
 <Layout title="Dashboard">
-    <Section>
-        <div class="w-fit h-fit text-center mx-auto">
-            <p class="m-0 p-0">Gauge 1</p>
-            <GaugeTemp name="chart1" value={56} client:only={'svelte'} />
-        </div>
-        <div class="w-fit h-fit text-center mx-auto">
-            <p class="m-0 p-0">Chart 1</p>
-            <LineTemp xData={[1,2,3,4,5,6]} yData={[1,24,56,75,16,72]} client:only={'svelte'} />
-        </div>
-    </Section>
-    <Section>
-        <div class="w-fit h-fit text-center mx-auto">
-            <p class="m-0 p-0">Gauge 2</p>
-            <GaugeTemp name="chart2" value={96} client:only={'svelte'} />
-        </div>
-        <div class="w-fit h-fit text-center mx-auto">
-            <p class="m-0 p-0">Chart 2</p>
-            <LineTemp xData={[1,2,3]} yData={[1,24,56]} client:only={'svelte'} />
-        </div>
-    </Section>
+    <div class="flex flex-col z-10">
+        <WidgetSection auto={auto}>
+            <DateTime />
+        </WidgetSection>
+        <AppSection auto={auto}>
+            <AppCategory heading="Category 1">
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+            </AppCategory>
+            <AppCategory heading="Category 2">
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+            </AppCategory>
+            <AppCategory heading="Category 3">
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+            </AppCategory>
+            <AppCategory heading="Category 4">
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png" />
+            </AppCategory>
+        </AppSection>
+    </div>
 </Layout>

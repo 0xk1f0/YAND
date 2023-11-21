@@ -28,17 +28,43 @@ const { title } = Astro.props;
     }
 
     html {
-        @apply
-        p-0
+        @apply p-0
         m-0;
     }
 
     body {
-        @apply
+        @apply bg-surface-300
         m-0
         p-0
         flex
         flex-col
         min-h-screen;
+    }
+
+    p {
+        @apply text-primary-900
+        text-base;
+    }
+
+    h1 {
+        @apply text-primary-900
+        text-2xl
+        font-bold;
+    }
+
+    h2 {
+        @apply text-primary-900
+        text-xl
+        font-semibold;
+    }
+
+    h3 {
+        @apply text-primary-900
+        text-lg
+        font-medium;
+    }
+
+    a {
+        @apply text-primary-700;
     }
 </style>

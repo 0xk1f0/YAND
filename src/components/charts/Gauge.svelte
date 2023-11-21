@@ -10,7 +10,7 @@
         series: [value],
         chart: {
             type: 'radialBar',
-            offsetY: 20,
+            offsetY: 20
         },
         plotOptions: {
             radialBar: {
@@ -28,10 +28,10 @@
             }
         },
         legend: {
-            show: false,
+            show: false
         },
         tooltip: {
-            enabled: false,
+            enabled: false
         },
         fill: {
             type: 'gradient',
@@ -40,8 +40,8 @@
                 opacityFrom: 1,
                 opacityTo: 0.7,
                 stops: [0, 100]
-            },
-        },
+            }
+        }
     };
 
     onMount(() => {
