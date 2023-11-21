@@ -5,32 +5,34 @@ import WidgetSection from '../components/sections/WidgetSection.svelte';
 import AppCategory from '../components/AppCategory.svelte';
 import AppCard from '../components/AppCard.svelte';
 import DateTime from '../components/widgets/DateTime.svelte';
+import Info from '../components/widgets/Info.svelte';
 
 // automatically scale columns and rows
 let auto: boolean = true;
 ---
 
 <Layout title="Dashboard">
-    <div class="flex flex-col z-10">
+    <div class="flex flex-col z-10 w-full xl:max-w-[66%] mx-auto">
         <WidgetSection auto={auto}>
-            <DateTime />
+            <Info name="Dashboard" />
+            <DateTime client:load />
         </WidgetSection>
-        <AppSection auto={auto}>
+        <AppSection auto={auto} client:load>
             <AppCategory heading="Category 1">
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
             </AppCategory>
             <AppCategory heading="Category 2">
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
             </AppCategory>
             <AppCategory heading="Category 3">
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
             </AppCategory>
             <AppCategory heading="Category 4">
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
-                <AppCard name="Test" summary="Summary" icon="icon.png" />
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
+                <AppCard name="Test" summary="Summary" icon="icon.png"/>
             </AppCategory>
         </AppSection>
     </div>

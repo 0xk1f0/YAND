@@ -1,9 +1,5 @@
 <script lang="ts">
-    const TIME = new Date();
-
-    // Time
-    const HOUR = TIME.getHours();
-    const MINUTE = TIME.getMinutes();
+    import { onMount, onDestroy } from 'svelte';
 
     // Date
     const WEEKDAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -21,26 +17,48 @@
         'November',
         'December'
     ];
-    const DAY = TIME.getDate();
-    const DAY_NAME = WEEKDAY[TIME.getDay()];
-    const MONTH_NAME = MONTH[TIME.getMonth()];
-    const YEAR = TIME.getFullYear();
+    let interval: NodeJS.Timeout;
+    let time: Date = new Date();
+    $: HOUR = time.getHours() > 9 ? time.getHours() : `0${time.getHours()}`;
+    $: MINUTE = time.getMinutes() > 9 ? time.getMinutes() : `0${time.getMinutes()}`;
+    $: DAY = time.getDate();
+    $: DAY_NAME = WEEKDAY[time.getDay()];
+    $: MONTH_NAME = MONTH[time.getMonth()];
+    $: YEAR = time.getFullYear();
+
+    onMount(() => {
+        interval = setInterval(() => {
+            time = new Date();
+        }, 5000);
+    });
+
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 </script>
 
-<div class="min-w-[50%] bg-surface-500 p-4 flex flex-row rounded-md flex-1 justify-between space-x-4">
-    <div class="flex flex-col">
-        <p class="text-primary-500 font-bold text-3xl">
-            {HOUR > 10 ? HOUR : `0${HOUR}`}
-        </p>
-        <p class="text-primary-500 font-bold text-3xl">
-            {MINUTE > 10 ? MINUTE : `0${MINUTE}`}
-        </p>
-    </div>
-    <div class="flex flex-col my-auto">
-        <p class="text-primary-500 font-semibold text-xl">
-            {DAY_NAME}, {DAY}
-            {MONTH_NAME}
-            {YEAR}
-        </p>
+<div class="flex flex-row justify-center">
+    <div class="flex flex-row py-2 px-4 space-x-4">
+        <div class="flex flex-col my-auto">
+            <p class="text-primary-700 font-semibold text-xl">
+                {DAY_NAME}, {DAY}
+                {MONTH_NAME}
+                {YEAR}
+            </p>
+        </div>
+        <div class="flex my-auto">
+            <svg class="h-16 w-1">
+                <line class="stroke-primary-700 stroke-[4]" x1="0" y1="0" x2="0" y2="200" />
+            </svg>
+        </div>
+        <div class="flex flex-col">
+            <p class="text-primary-700 font-bold text-3xl">
+                {HOUR}
+            </p>
+            <p class="text-primary-700 font-bold text-3xl">
+                {MINUTE}
+            </p>
+        </div>
+        
     </div>
 </div>
