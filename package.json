@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/node": "^7.0.2",
     "@astrojs/svelte": "^5.0.2",
-    "@astrojs/tailwind": "^5.0.3",
+    "@astrojs/tailwind": "^5.0.4",
     "apexcharts": "^3.45.0",
     "astro": "^4.0.7",
     "got": "^14.0.0",
