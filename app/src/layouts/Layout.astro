@@ -1,0 +1,48 @@
+---
+interface Props {
+    title: string;
+    bodyColor: string;
+}
+
+const { bodyColor, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body style={{ "background-color": bodyColor }}>
+        <div
+            class="flex flex-1 w-full h-full justify-center"
+        >
+            <slot />
+        </div>
+    </body>
+</html>
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        @apply box-border;
+    }
+
+    body {
+        @apply m-0 p-0
+        min-h-screen
+        flex flex-col
+        font-system-ui;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+        @apply m-0 p-0;
+    }
+</style>

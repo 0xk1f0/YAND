@@ -1,0 +1,16 @@
+title: "Dashboard"
+subtitle: "YAND"
+
+default:
+  surface: "#131313"
+  foreground: "#ffffff"
+  background: "#444444"
+
+services:
+  - name: "Category"
+    items:
+      - name: "Example"
+        logo: "some-icon.png"
+        subtitle: "Description"
+        tag: "tag"
+        url: "https://example.com/"

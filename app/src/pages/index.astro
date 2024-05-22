@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Category from "../components/Category.astro";
+import ConfigParser from "../lib/config";
+
+const CONFIG = new ConfigParser()
+const CATEGORIES = await CONFIG.getCategories();
+const DEFAULT = await CONFIG.getGeneral();
+---
+
+<Layout bodyColor={DEFAULT.default.surface} title={DEFAULT.title + ' | ' + DEFAULT.subtitle}>
+    <div class="mx-auto my-auto xl:max-w-[55%] w-full flex flex-1">
+        <div class="flex flex-1 lg:flex-row flex-wrap m-4">
+            {
+                CATEGORIES.map((entry: { name: string, items: any }) => (
+                    <Category
+                        name={entry.name}
+                        foreground={DEFAULT.default.foreground}
+                        background={DEFAULT.default.background}
+                    />
+                ))
+            }
+        </div>
+    </div>
+</Layout>

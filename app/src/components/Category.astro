@@ -1,0 +1,31 @@
+---
+import Entry from "./Entry.astro";
+import ConfigParser from "../lib/config";
+
+interface Props {
+    name: string;
+    foreground: string;
+    background: string;
+}
+
+const CONFIG = new ConfigParser();
+const { name, foreground, background } = Astro.props;
+const ENTRIES = await CONFIG.getCategoryEntries(name);
+---
+
+<div class="flex-1 p-4 space-y-4 lg:min-w-[25%]">
+    <h1 style={{ color: foreground }} class="text-3xl font-bold">{name}</h1>
+    {
+        ENTRIES.map((entry: { name: string, logo: string, subtitle: string, tag: string, url: string }) => (
+            <Entry
+                name={entry.name}
+                tag={entry.tag}
+                url={entry.url}
+                image={entry.logo}
+                description={entry.subtitle}
+                foreground={foreground}
+                background={background}
+            />
+        ))
+    }
+</div>
