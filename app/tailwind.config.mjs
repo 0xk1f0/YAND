@@ -9,7 +9,7 @@ export default {
 				"system-ui": "system-ui"
 			},
 			flex: {
-				"25": "1 1 25%",
+				"20": "1 1 20%",
 				"100": "1 1 100%"
 			}
 		},
