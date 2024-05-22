@@ -7,6 +7,10 @@ export default {
 		extend: {
 			fontFamily: {
 				"system-ui": "system-ui"
+			},
+			flex: {
+				"25": "1 1 25%",
+				"100": "1 1 100%"
 			}
 		},
 	},

@@ -9,8 +9,8 @@ const DEFAULT = await CONFIG.getGeneral();
 ---
 
 <Layout bodyColor={DEFAULT.default.surface} title={DEFAULT.title + ' | ' + DEFAULT.subtitle}>
-    <div class="mx-auto my-auto xl:max-w-[55%] w-full flex flex-1">
-        <div class="flex flex-1 lg:flex-row flex-wrap m-4">
+    <div class="flex flex-1 mx-auto my-auto max-w-screen-xl">
+        <div class="flex flex-1 flex-wrap m-4">
             {
                 CATEGORIES.map((entry: { name: string, items: any }) => (
                     <Category
