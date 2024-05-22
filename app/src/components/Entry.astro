@@ -28,7 +28,7 @@ const { image, tag, url, name, description, foreground, background } =
         <div>
             <img
                 class="max-w-[48px]"
-                src={path.join(path.normalize(ICON_PATH) + image)}
+                src={path.normalize(ICON_PATH) + `/${image}`}
             />
         </div>
         <div class="flex flex-col flex-1">
