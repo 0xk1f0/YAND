@@ -1,4 +1,4 @@
-FROM node:slim as builder
+FROM node:21-slim as builder
 
 # change workdir
 WORKDIR /app
