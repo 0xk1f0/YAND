@@ -21,7 +21,7 @@ RUN npm run build
 # remove unnecessary dependencies
 RUN npm prune --production
 
-FROM node:21-alpine
+FROM node:21-slim
 
 # change workdir
 WORKDIR /app
