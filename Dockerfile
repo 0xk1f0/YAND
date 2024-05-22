@@ -27,7 +27,7 @@ COPY misc/default.yaml /default
 RUN npm run build
 
 # symlink images path
-RUN ln -s /usr/share/nginx/html/icons /assets
+RUN ln -s /app/dist/client/icons /assets
 
 # expose 80
 EXPOSE 80
