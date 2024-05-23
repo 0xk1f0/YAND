@@ -1,10 +1,14 @@
 ---
+import path from 'path';
+
 interface Props {
     title: string;
     bodyColor: string;
+    preloads: Set<string>;
 }
 
-const { bodyColor, title } = Astro.props;
+const ICON_PATH = process.env.ICON_PATH || "/icons";
+const { preloads, bodyColor, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,6 +18,9 @@ const { bodyColor, title } = Astro.props;
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        {Array.from(preloads).map((entry) => (
+            <link rel="preload" href={path.normalize(ICON_PATH) + `/${entry}`} as="image" />
+        ))}
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>

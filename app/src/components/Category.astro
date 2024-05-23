@@ -10,7 +10,8 @@ interface Props {
 
 const CONFIG = new ConfigParser();
 const { name, foreground, background } = Astro.props;
-const ENTRIES = await CONFIG.getCategoryEntries(name);
+const YAML = await CONFIG.readConfig();
+const ENTRIES = await CONFIG.getCategoryEntries(YAML, name);
 ---
 
 <div class="flex-100 sm:flex-20 p-4 space-y-4">
