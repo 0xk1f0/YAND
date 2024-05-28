@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   yand:
-    image: ghcr.io/0xk1f0/YAND:latest
+    image: ghcr.io/0xk1f0/yand:latest
     ports:
       - 80:80
     volumes:
@@ -9,7 +9,7 @@ services:
       - ./data/config:/config
     environment:
       TZ: Europe/Vienna
-      # CONFIG_DIR: '/some/other/path'
-      # DEFAULT_DIR: '/some/other/path'
-      # ICON_PATH: '/some/other/path'
+      # CONFIG: '/some/custom/config.toml'
+      # DEFAULT: '/some/default/config.toml'
+      # ICON_PATH: '/some/asset/path'
     restart: unless-stopped

@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Category from "../components/Category.astro";
+import AtAGlance from "../components/AtAGlance.astro";
 import ConfigParser from "../lib/config";
 
-const CONFIG = new ConfigParser();
-const YAML = await CONFIG.readConfig();
-const ICONS = await CONFIG.getAllIcons(YAML);
+const YAML = await ConfigParser.readConfig();
+const ICONS = await ConfigParser.getAllIcons(YAML);
 ---
 
 <Layout
@@ -14,7 +14,18 @@ const ICONS = await CONFIG.getAllIcons(YAML);
     title={YAML.title + " | " + YAML.subtitle}
 >
     <div class="flex flex-1 mx-auto my-auto max-w-screen-xl">
-        <div class="flex flex-1 flex-wrap m-4">
+        <div class="space-y-6 flex flex-1 flex-row flex-wrap m-4">
+            <AtAGlance
+                weather={YAML.weather.enabled}
+                latitude={YAML.weather.latitude}
+                longtitude={YAML.weather.longtitude}
+                timezone={YAML.weather.timezone}
+                foreground={YAML.default.foreground}
+                background={YAML.default.background}
+            />
+            <svg class="w-full px-4 h-[0.5rem]">
+                <line class="stroke-[0.25rem]" style={{ stroke: YAML.default.foreground }} x1="0" x2="999999" />
+            </svg>
             {
                 YAML.services.map((entry: { name: string; items: any }) => (
                     <Category
