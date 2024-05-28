@@ -6,6 +6,12 @@ default:
   foreground: "#ffffff"
   background: "#444444"
 
+weather:
+  enabled: true
+  timezone: 'Europe/Berlin'
+  latitude: '48.2085'
+  longtitude: '16.3721'
+
 services:
   - name: "Category"
     items:
