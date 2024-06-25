@@ -12,10 +12,7 @@ class ConfigParser {
             config = await fs.readFile(path.normalize(CONFIG), "utf-8");
         } catch {
             try {
-                config = await fs.readFile(
-                    path.normalize(DEFAULT),
-                    "utf-8"
-                );
+                config = await fs.readFile(path.normalize(DEFAULT), "utf-8");
             } catch {
                 config = "";
             }

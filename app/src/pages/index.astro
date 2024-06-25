@@ -24,7 +24,11 @@ const ICONS = await ConfigParser.getAllIcons(YAML);
                 background={YAML.default.background}
             />
             <svg class="w-full px-4 h-[0.5rem]">
-                <line class="stroke-[0.25rem]" style={{ stroke: YAML.default.foreground }} x1="0" x2="999999" />
+                <line
+                    class="stroke-[0.25rem]"
+                    style={{ stroke: YAML.default.foreground }}
+                    x1="0"
+                    x2="999999"></line>
             </svg>
             {
                 YAML.services.map((entry: { name: string; items: any }) => (

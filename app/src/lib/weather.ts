@@ -31,8 +31,7 @@ class OpenMeteo {
                     temp_min:
                         DAILY.temperature_2m_min +
                         DAILY_UNITS.temperature_2m_min,
-                    sun_dur:
-                        (DAILY.sunshine_duration / 3600).toFixed(2) + "h",
+                    sun_dur: (DAILY.sunshine_duration / 3600).toFixed(2) + "h",
                 };
             } else {
                 return false;
