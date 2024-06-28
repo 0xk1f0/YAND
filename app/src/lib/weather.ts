@@ -5,12 +5,14 @@ const PARAMETERS =
 class OpenMeteo {
     static async getWeather(tz: string, lat: string, log: string) {
         try {
+            const ABORT = AbortSignal.timeout(3000);
             const RESP = await fetch(
                 `${BASE_URL}&latitude=${encodeURIComponent(
                     lat
                 )}&longitude=${encodeURIComponent(
                     log
-                )}&timezone=${encodeURIComponent(tz)}${PARAMETERS}`
+                )}&timezone=${encodeURIComponent(tz)}${PARAMETERS}`,
+                { signal: ABORT }
             );
             if (RESP.ok) {
                 const RAW = await RESP.json();
@@ -34,9 +36,11 @@ class OpenMeteo {
                     sun_dur: (DAILY.sunshine_duration / 3600).toFixed(2) + "h",
                 };
             } else {
+                console.warn("OpenMeteo fetch timed out or failed.");
                 return false;
             }
         } catch {
+            console.warn("OpenMeteo fetch timed out or failed.");
             return false;
         }
     }
