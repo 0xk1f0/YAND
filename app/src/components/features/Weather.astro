@@ -1,0 +1,51 @@
+---
+import OpenMeteo from "../../lib/weather";
+
+interface Props {
+    foreground: string;
+    background: string;
+    latitude: string;
+    longtitude: string;
+    timezone: string;
+}
+
+const { latitude, longtitude, timezone, foreground, background } = Astro.props;
+
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const COMPONENTS: any[] = [];
+await sleep(5000);
+const WEATHER = await OpenMeteo.getWeather(timezone, latitude, longtitude);
+if (WEATHER){
+    COMPONENTS.push(WEATHER);
+} else {
+    COMPONENTS.push(false);
+}
+---
+
+<div class="flex flex-col mt-auto text-left md:text-right">
+    {
+        COMPONENTS.filter((entry: typeof WEATHER | false) => entry !== false).map((ft) => (
+            <h1 style={{ color: foreground }} class="text-lg md:text-4xl">
+                <span class="font-bold">{ft.temp}</span> -{" "}
+                <span class="font-bold">{ft.temp_min}</span> /{" "}
+                <span class="font-bold">{ft.temp_max}</span>
+            </h1>
+            <h1 style={{ color: foreground }} class="text-lg md:text-xl">
+                RAIN: <span class="font-bold">{ft.perc_prob}</span> - COVER:{" "}
+                <span class="font-bold">{ft.cloud_cov}</span> - UV:{" "}
+                <span class="font-bold">{ft.uv_idx}</span> - SUN:{" "}
+                <span class="font-bold">{ft.sun_dur}</span>
+            </h1>
+        ))
+    }
+    {
+        COMPONENTS.filter((entry: typeof WEATHER | false) => entry === false).map((ft) => (
+            <h1 style={{ color: foreground }} class="text-lg md:text-4xl">
+                <p>Could not load Weather.</p>
+            </h1>
+        ))
+    }
+</div>
