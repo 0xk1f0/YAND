@@ -10,13 +10,7 @@ interface Props {
 }
 
 const { latitude, longtitude, timezone, foreground, background } = Astro.props;
-
-function sleep(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 const COMPONENTS: any[] = [];
-await sleep(5000);
 const WEATHER = await OpenMeteo.getWeather(timezone, latitude, longtitude);
 if (WEATHER){
     COMPONENTS.push(WEATHER);
