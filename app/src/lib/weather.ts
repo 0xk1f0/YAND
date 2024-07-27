@@ -8,11 +8,11 @@ class OpenMeteo {
             const ABORT = AbortSignal.timeout(3000);
             const RESP = await fetch(
                 `${BASE_URL}&latitude=${encodeURIComponent(
-                    lat
+                    lat,
                 )}&longitude=${encodeURIComponent(
-                    log
+                    log,
                 )}&timezone=${encodeURIComponent(tz)}${PARAMETERS}`,
-                { signal: ABORT }
+                { signal: ABORT },
             );
             if (RESP.ok) {
                 const RAW = await RESP.json();

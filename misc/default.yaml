@@ -13,10 +13,10 @@ weather:
   longtitude: '16.3721'
 
 services:
-  - name: "Category"
+  - name: "Example Category"
     items:
       - name: "Example"
-        logo: "some-icon.png"
-        subtitle: "Description"
+        logo: "example-icon.webp"
+        subtitle: "Example Description"
         tag: "tag"
         url: "https://example.com/"

@@ -44,7 +44,7 @@ class ConfigParser {
                     url: string;
                 }) => {
                     icons.add(entry.logo);
-                }
+                },
             );
         });
         return icons;
