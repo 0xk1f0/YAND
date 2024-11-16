@@ -23,8 +23,8 @@ if (WEATHER){
     {
         COMPONENTS.filter((entry: typeof WEATHER | false) => entry !== false).map((ft) => (
             <h1 style={{ color: foreground }} class="text-lg md:text-4xl">
-                <span class="font-bold">{ft.temp}</span> -{" "}
-                <span class="font-bold">{ft.temp_min}</span> /{" "}
+                NOW: <span class="font-bold">{ft.temp}</span> MIN:{" "}
+                <span class="font-bold">{ft.temp_min}</span> MAX:{" "}
                 <span class="font-bold">{ft.temp_max}</span>
             </h1>
             <h1 style={{ color: foreground }} class="text-lg md:text-xl">
