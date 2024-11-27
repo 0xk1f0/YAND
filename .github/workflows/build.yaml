@@ -3,8 +3,14 @@ name: Build and Publish Latest Image
 on:
   push:
     branches: [ "master" ]
+    paths:
+      - '.github/workflows/build.yaml'
+      - 'sites/blog/**'
   pull_request:
-      branches: [ "master" ]
+    branches: [ "master" ]
+    paths:
+      - '.github/workflows/build.yaml'
+      - 'sites/blog/**'
 
 env:
   REGISTRY: ghcr.io

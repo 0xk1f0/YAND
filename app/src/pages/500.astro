@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { error } = Astro.props;
+// dont show 500 page if user navigates to it manually
+if (error === undefined) return Astro.redirect("/404");
 ---
 
 <div class="flex bg-black min-w-screen min-h-screen">
