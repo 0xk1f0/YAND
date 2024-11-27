@@ -1,51 +1,69 @@
+import { z } from "zod";
 import path from "path";
 import { promises as fs } from "fs";
-import { parse } from "yaml";
+import { parse as yamlParse } from "yaml";
 
-const CONFIG = process.env.CONFIG || "/config/config.yaml";
-const DEFAULT = process.env.DEFAULT || "/default/default.yaml";
+const CONFIG_PATH = path.normalize(process.env.CONFIG || "/config/config.yaml");
+
+const ConfigFile = z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    default: z.object({
+        surface: z.string(),
+        foreground: z.string().startsWith("#").min(7).max(7),
+        background: z.string().startsWith("#").min(7).max(7),
+    }),
+    weather: z.object({
+        enabled: z.boolean(),
+        timezone: z.string(),
+        latitude: z.string(),
+        longtitude: z.string(),
+    }),
+    services: z.array(
+        z.object({
+            name: z.string(),
+            items: z.array(
+                z.object({
+                    name: z.string(),
+                    logo: z.string(),
+                    subtitle: z.string(),
+                    tag: z.string(),
+                    url: z.string().url(),
+                }),
+            ),
+        }),
+    ),
+});
+
+export type ConfigFileType = z.infer<typeof ConfigFile>;
 
 class ConfigParser {
     static async readConfig() {
         let config = "";
         try {
-            config = await fs.readFile(path.normalize(CONFIG), "utf-8");
-        } catch {
-            try {
-                config = await fs.readFile(path.normalize(DEFAULT), "utf-8");
-            } catch {
-                config = "";
-            }
+            config = await fs.readFile(CONFIG_PATH, "utf-8");
+        } catch (e: any) {
+            throw {
+                type: e instanceof Error ? e.name : "Unknown",
+                message: `Unable to open ${CONFIG_PATH}`,
+            };
         }
-        if (config !== "") {
-            const YAML = parse(config);
-            return YAML;
-        } else {
-            throw Error("No config file found");
-        }
+        return ConfigFile.parse(yamlParse(config));
     }
 
-    static async getCategoryEntries(yaml: any, category: string) {
-        const SERVICES: { name: string; items: any }[] = yaml.services;
-        const ITEMS = SERVICES.find((element) => element.name === category);
+    static async getCategoryEntries(config: ConfigFileType, category: string) {
+        const ITEMS = config.services.find(
+            (element) => element.name === category,
+        );
         return ITEMS !== undefined ? ITEMS.items : [];
     }
 
-    static async getAllIcons(yaml: any) {
-        const SERVICES: { name: string; items: any }[] = yaml.services;
+    static async getAllIcons(config: ConfigFileType) {
         let icons: Set<string> = new Set();
-        SERVICES.forEach((element) => {
-            element.items.forEach(
-                (entry: {
-                    name: string;
-                    logo: string;
-                    subtitle: string;
-                    tag: string;
-                    url: string;
-                }) => {
-                    icons.add(entry.logo);
-                },
-            );
+        config.services.forEach((element) => {
+            element.items.forEach((entry) => {
+                icons.add(entry.logo);
+            });
         });
         return icons;
     }

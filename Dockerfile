@@ -1,4 +1,4 @@
-FROM node:21-slim as builder
+FROM node:22-slim as builder
 
 # change workdir
 WORKDIR /build
@@ -21,25 +21,22 @@ RUN npm run build
 # remove unnecessary dependencies
 RUN npm prune --production
 
-FROM node:21-slim
+FROM node:22-slim
 
 # change workdir
 WORKDIR /app
-
-# create necessary paths
-RUN mkdir -p /config \
-&& mkdir -p /default
 
 # copy app files
 COPY --from=builder /build/dist ./dist
 COPY --from=builder /build/node_modules ./node_modules
 
+# necessary paths
+RUN mkdir -p /config
+RUN ln -s /app/dist/client/icons /assets
+
 # copy misc files
 COPY misc/entrypoint.sh /
-COPY misc/default.yaml /default
-
-# symlink images path
-RUN ln -s /app/dist/client/icons /assets
+COPY misc/config.yaml /config
 
 # expose 80
 EXPOSE 80

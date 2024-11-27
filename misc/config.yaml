@@ -16,7 +16,7 @@ services:
   - name: "Example Category"
     items:
       - name: "Example"
-        logo: "example-icon.webp"
+        logo: "example.webp"
         subtitle: "Example Description"
         tag: "tag"
         url: "https://example.com/"

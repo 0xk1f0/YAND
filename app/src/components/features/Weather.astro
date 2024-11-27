@@ -36,7 +36,7 @@ if (WEATHER){
         ))
     }
     {
-        COMPONENTS.filter((entry: typeof WEATHER | false) => entry === false).map((ft) => (
+        COMPONENTS.filter((entry: typeof WEATHER | false) => entry === false).map((_) => (
             <h1 style={{ color: foreground }} class="text-lg md:text-4xl">
                 <p>Could not load Weather.</p>
             </h1>

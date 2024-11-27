@@ -10,6 +10,5 @@ services:
     environment:
       TZ: Europe/Vienna
       # CONFIG: '/some/custom/config.toml'
-      # DEFAULT: '/some/default/config.toml'
       # ICON_PATH: '/some/asset/path'
     restart: unless-stopped

@@ -31,8 +31,9 @@ const ICONS = await ConfigParser.getAllIcons(YAML);
                     x2="999999"></line>
             </svg>
             {
-                YAML.services.map((entry: { name: string; items: any }) => (
+                YAML.services.map((entry) => (
                     <Category
+                        config={YAML}
                         name={entry.name}
                         foreground={YAML.default.foreground}
                         background={YAML.default.background}
