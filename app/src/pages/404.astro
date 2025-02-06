@@ -1,16 +1,16 @@
 ---
+import ErrorLayout from "../layouts/ErrorLayout.astro";
+
 const REQUEST_URL = new URL(Astro.request.url);
 ---
 
-<div class="bg-black">
-    <p class="text-white"></p>
-</div>
-
-<div class="flex bg-black min-w-screen min-h-screen">
-    <div class="text-white text-center max-w-[50%] m-auto font-mono">
-        <h1 class="text-4xl font-bold mb-2">404 - Not Found</h1>
-        <p class="p-4 text-white bg-gray-900 break-all">
-            {REQUEST_URL.pathname}
-        </p>
+<ErrorLayout title="404 - Not Found" }>
+    <div class="flex bg-black min-w-screen min-h-screen">
+        <div class="text-white text-center max-w-[50%] m-auto font-mono">
+            <h1 class="text-4xl font-bold mb-2">404 - Not Found</h1>
+            <p class="p-4 text-white bg-gray-900 break-all">
+                {REQUEST_URL.pathname}
+            </p>
+        </div>
     </div>
-</div>
+</ErrorLayout>

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+    --font-system-ui: system-ui;
+    --flex-20: 1 1 20%;
+    --flex-100: 1 1 100%;
+}
+
+*,
+*::before,
+*::after {
+    @apply box-border;
+}
+
+body {
+    @apply m-0 p-0
+    min-h-screen
+    flex flex-col
+    font-system-ui;
+}

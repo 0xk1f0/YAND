@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import path from "path";
 
 interface Props {
@@ -36,24 +37,3 @@ const { preloads, bodyColor, title } = Astro.props;
         </div>
     </body>
 </html>
-<style is:global>
-    *,
-    *::before,
-    *::after {
-        @apply box-border;
-    }
-
-    body {
-        @apply m-0 p-0
-        min-h-screen
-        flex flex-col
-        font-system-ui;
-    }
-
-    p,
-    h1,
-    h2,
-    h3 {
-        @apply m-0 p-0;
-    }
-</style>
