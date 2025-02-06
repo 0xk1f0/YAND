@@ -57,15 +57,17 @@ const { image, tag, url, name, description, foreground, background } =
 </a>
 
 <style>
+    @import "tailwindcss";
+
     .entry-element:hover > .badge-element {
-        @apply !absolute;
+        @apply absolute;
+    }
+    
+    .entry-element:hover > .badge-element > p {
+        @apply !block;
     }
 
     .entry-element:hover > .text-element {
         @apply !mr-8;
-    }
-
-    .entry-element:hover > .badge-element > p {
-        @apply block;
     }
 </style>
