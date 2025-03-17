@@ -9,6 +9,7 @@ on:
       - 'app/astro.conf.mjs'
       - 'app/tsconfig.json'
       - 'app/package.json'
+      - 'app/Containerfile'
   pull_request:
     branches: [ "master" ]
     paths:
@@ -17,6 +18,7 @@ on:
       - 'app/astro.conf.mjs'
       - 'app/tsconfig.json'
       - 'app/package.json'
+      - 'app/Containerfile'
 
 jobs:
   build-publish:
