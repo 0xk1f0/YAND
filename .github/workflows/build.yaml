@@ -49,6 +49,6 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/delete-package-versions@v5
         with:
-          package-name: ${{ github.event.repository.name }}
+          package-name: yand
           package-type: container
           min-versions-to-keep: 3
