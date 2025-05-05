@@ -1,7 +1,7 @@
 version: '3'
 name: yand
 services:
-  server:
+  yand:
     image: ghcr.io/0xk1f0/yand:latest
     ports:
       - 80:80
