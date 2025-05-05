@@ -5,20 +5,22 @@ on:
     branches: [ "master" ]
     paths:
       - '.github/workflows/**'
-      - 'app/src/**'
-      - 'app/astro.conf.mjs'
-      - 'app/tsconfig.json'
-      - 'app/package.json'
-      - 'app/Containerfile'
+      - 'src/**'
+      - 'misc/**'
+      - 'astro.conf.mjs'
+      - 'tsconfig.json'
+      - 'package.json'
+      - 'Containerfile'
   pull_request:
     branches: [ "master" ]
     paths:
       - '.github/workflows/**'
-      - 'app/src/**'
-      - 'app/astro.conf.mjs'
-      - 'app/tsconfig.json'
-      - 'app/package.json'
-      - 'app/Containerfile'
+      - 'src/**'
+      - 'misc/**'
+      - 'astro.conf.mjs'
+      - 'tsconfig.json'
+      - 'package.json'
+      - 'Containerfile'
 
 jobs:
   build-publish:
@@ -33,9 +35,9 @@ jobs:
         with:
           image: ${{ github.repository }}
           tags: latest
-          context: ./app
+          context: ./
           containerfiles: |
-            ./app/Containerfile
+            ./Containerfile
       - name: Push to GHCR
         if: ${{ github.event_name != 'pull_request' }}
         uses: redhat-actions/push-to-registry@v2

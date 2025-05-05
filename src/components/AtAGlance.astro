@@ -13,14 +13,12 @@ interface Props {
 
 const { weather, latitude, longtitude, timezone, foreground, background } =
     Astro.props;
-const FEATURES: string[] = [];
-if (weather) FEATURES.push("weather");
 ---
 
 <div class="flex flex-col md:flex-row justify-between flex-100 px-4">
     <DateTime foreground={foreground} background={background} />
     {
-        FEATURES.filter((entry: string) => entry === "weather").map((ft) => (
+        weather && (
             <Weather
                 server:defer
                 latitude={latitude}
@@ -49,6 +47,6 @@ if (weather) FEATURES.push("weather");
                     />
                 </div>
             </Weather>
-        ))
+        )
     }
 </div>

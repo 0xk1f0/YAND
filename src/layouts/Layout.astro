@@ -8,7 +8,7 @@ interface Props {
     preloads: Set<string>;
 }
 
-const ICON_PATH = process.env.ICON_PATH || "/icons";
+const ICONS = process.env.ICONS || "/icons";
 const { preloads, bodyColor, title } = Astro.props;
 ---
 
@@ -23,7 +23,7 @@ const { preloads, bodyColor, title } = Astro.props;
             Array.from(preloads).map((entry) => (
                 <link
                     rel="preload"
-                    href={path.normalize(ICON_PATH) + `/${entry}`}
+                    href={path.normalize(ICONS) + `/${entry}`}
                     as="image"
                 />
             ))

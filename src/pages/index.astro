@@ -14,7 +14,7 @@ const ICONS = await ConfigParser.getAllIcons(YAML);
     title={YAML.title + " | " + YAML.subtitle}
 >
     <div class="flex flex-1 mx-auto my-auto max-w-screen-xl">
-        <div class="space-y-6 flex flex-1 flex-row flex-wrap m-4">
+        <div class="space-y-6 flex flex-1 flex-col flex-wrap m-4">
             <AtAGlance
                 weather={YAML.weather.enabled}
                 latitude={YAML.weather.latitude}

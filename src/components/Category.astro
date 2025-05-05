@@ -1,10 +1,10 @@
 ---
 import Entry from "./Entry.astro";
 import ConfigParser from "../lib/config";
-import type { ConfigFileType } from "../lib/config";
+import type { Config } from "../lib/config";
 
 interface Props {
-    config: ConfigFileType;
+    config: Config;
     name: string;
     foreground: string;
     background: string;
