@@ -19,7 +19,7 @@ By default, YAND expects the configuration to be placed in `./data/config/` and 
 
 An example configuration file can be found in the `misc/` folder of this repository. The icons you wan to use for your services need to be manually placed in the assets folder.
 
-YAND is intended to be a lightweight drop in replacement/alternative for [Homer Dashboard]("https://github.com/bastienwirtz/homer"), so the syntax will be about the same.
+YAND is intended to be a lightweight drop in replacement/alternative for [Homer Dashboard](https://github.com/bastienwirtz/homer), so the syntax will be about the same.
 
 ## Building
 
