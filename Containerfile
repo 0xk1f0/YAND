@@ -16,9 +16,6 @@ COPY src ./src
 # and build webapp
 RUN npm run build
 
-# cleanup
-RUN npx clean-modules -y
-
 FROM node:22-slim
 
 # change workdir
