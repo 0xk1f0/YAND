@@ -10,7 +10,7 @@ spec:
         - name: TZ
           value: Europe/Vienna
       ports:
-        - containerPort: 80
+        - containerPort: 8080
           hostPort: 80
       volumeMounts:
         - mountPath: /assets

@@ -4,7 +4,7 @@ services:
   yand:
     image: ghcr.io/0xk1f0/yand:latest
     ports:
-      - 80:80
+      - 80:8080
     volumes:
       - ./data/assets:/assets
       - ./data/config:/config

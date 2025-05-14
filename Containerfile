@@ -1,30 +1,20 @@
-FROM node:22-slim as builder
+FROM docker.io/denoland/deno:alpine
 
 # change workdir
-WORKDIR /build
+WORKDIR /app
 
 COPY package.json \
 astro.config.mjs \
 tsconfig.json ./
 
 # Install dependencies
-RUN npm install --omit=dev
+RUN deno install
 
 # app files
 COPY src ./src
 
 # and build webapp
-RUN npm run build
-
-FROM node:22-slim
-
-# change workdir
-WORKDIR /app
-
-# copy app files
-COPY --from=builder /build/package.json ./
-COPY --from=builder /build/dist ./dist
-COPY --from=builder /build/node_modules ./node_modules
+RUN deno task build
 
 # necessary paths
 RUN mkdir -p /config
@@ -34,8 +24,8 @@ RUN ln -s /app/dist/client/icons /assets
 COPY misc/entrypoint.sh /
 COPY misc/config.yaml /config
 
-# expose 80
-EXPOSE 80
+# expose 8080
+EXPOSE 8080
 
 # start app
 CMD ["/entrypoint.sh"]

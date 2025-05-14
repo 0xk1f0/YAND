@@ -5,11 +5,10 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
-        "astro": "astro",
-        "dist": "NODE_ENV=production HOST=0.0.0.0 PORT=8080 node ./dist/server/entry.mjs"
+        "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/node": "~9.2.1",
+        "@deno/astro-adapter": "~0.3.0",
         "@tailwindcss/vite": "^4.1.6",
         "arktype": "~2.1.20",
         "astro": "~5.7.12",

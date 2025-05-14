@@ -1,6 +1,5 @@
 ---
 import ErrorLayout from "../layouts/ErrorLayout.astro";
-import { ZodError } from "zod";
 
 interface Props {
     error: unknown;
@@ -15,7 +14,7 @@ if (error === undefined) return Astro.redirect("/404");
     <div class="flex bg-black min-w-screen min-h-screen">
         <div class="text-white text-center max-w-[50%] m-auto font-mono">
             <h1 class="text-4xl font-bold mb-2">
-                {error instanceof ZodError ? "Syntax Error" : "Runtime Error"}
+                Runtime Error
             </h1>
             <p class="p-4 text-white bg-gray-900 break-all">
                 {JSON.stringify(error)}

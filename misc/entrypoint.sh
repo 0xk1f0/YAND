@@ -2,7 +2,7 @@
 
 export NODE_ENV=production
 export HOST=0.0.0.0
-export PORT=80
+export PORT=8080
 
 echo '''
 __  _____    _   ______
@@ -15,4 +15,4 @@ __  _____    _   ______
 
 echo "[+] Starting Web Application ..."
 
-node ./dist/server/entry.mjs
+deno --quiet --allow-net --allow-read --allow-env /app/dist/server/entry.mjs
