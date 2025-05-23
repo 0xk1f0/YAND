@@ -1,4 +1,4 @@
-name: Build and Publish Latest Image
+name: Build and Publish
 
 on:
   push:
@@ -23,7 +23,27 @@ on:
       - 'Containerfile'
 
 jobs:
-  build-publish:
+  build-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Build YAND
+        run: |
+          npm install
+          npm run build
+      - name: Publish YAND package
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build-container:
     runs-on: ubuntu-latest
     permissions:
       packages: write
