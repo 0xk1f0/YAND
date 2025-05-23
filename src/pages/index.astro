@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Category from "../components/Category.astro";
-import AtAGlance from "../components/AtAGlance.astro";
-import ConfigParser from "../lib/config";
+import Layout from "@layouts/Layout.astro";
+import Category from "@components/Category.astro";
+import AtAGlance from "@components/AtAGlance.astro";
+import ConfigParser from "@lib/config";
 
 const YAML = await ConfigParser.readConfig();
 const ICONS = await ConfigParser.getAllIcons(YAML);
