@@ -15,4 +15,4 @@ __  _____    _   ______
 
 echo "[+] Starting Web Application ..."
 
-deno --quiet --allow-net --allow-read --allow-env /app/dist/server/entry.mjs
+node /app/dist/server/entry.mjs

@@ -1,4 +1,4 @@
-FROM docker.io/denoland/deno:alpine
+FROM docker.io/node:alpine
 
 # change workdir
 WORKDIR /app
@@ -8,13 +8,13 @@ astro.config.mjs \
 tsconfig.json ./
 
 # Install dependencies
-RUN deno install
+RUN npm install
 
 # app files
 COPY src ./src
 
 # and build webapp
-RUN deno task build
+RUN npm run build
 
 # necessary paths
 RUN mkdir -p /config

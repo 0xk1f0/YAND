@@ -2,21 +2,31 @@
     "name": "yand",
     "type": "module",
     "version": "2.0",
+    "author": "0xk1f0",
+    "license": "GPL-3.0-only",
+    "repository": {
+        "url": "https://github.com/0xk1f0/YAND"
+    },
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
         "astro": "astro"
     },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+    ],
     "dependencies": {
-        "@deno/astro-adapter": "~0.3.0",
-        "@tailwindcss/vite": "^4.1.7",
+        "@astrojs/node": "~9.2.2",
+        "@tailwindcss/vite": "~4.1.7",
         "arktype": "~2.1.20",
-        "astro": "~5.7.13",
+        "astro": "~5.8.0",
         "tailwindcss": "~4.1.7",
         "typescript": "~5.8.3",
         "yaml": "~2.8.0"
     },
     "devDependencies": {
-        "@types/node": "~22.15.19"
+        "@types/node": "~22.15.21"
     }
 }
