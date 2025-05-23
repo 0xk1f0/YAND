@@ -44,6 +44,13 @@ jobs:
           npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cleanup registry
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: yand
+          package-type: npm
+          min-versions-to-keep: 3
   build-container:
     runs-on: ubuntu-latest
     permissions:
