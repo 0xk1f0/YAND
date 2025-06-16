@@ -20,14 +20,14 @@
     ],
     "dependencies": {
         "@astrojs/node": "~9.2.2",
-        "@tailwindcss/vite": "~4.1.8",
+        "@tailwindcss/vite": "~4.1.10",
         "arktype": "~2.1.20",
-        "astro": "~5.9.1",
-        "tailwindcss": "~4.1.8",
+        "astro": "~5.9.3",
+        "tailwindcss": "~4.1.10",
         "typescript": "~5.8.3",
         "yaml": "~2.8.0"
     },
     "devDependencies": {
-        "@types/node": "~22.15.30"
+        "@types/node": "~24.0.1"
     }
 }
