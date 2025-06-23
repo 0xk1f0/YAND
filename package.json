@@ -22,12 +22,12 @@
         "@astrojs/node": "~9.2.2",
         "@tailwindcss/vite": "~4.1.10",
         "arktype": "~2.1.20",
-        "astro": "~5.9.3",
+        "astro": "~5.10.0",
         "tailwindcss": "~4.1.10",
         "typescript": "~5.8.3",
         "yaml": "~2.8.0"
     },
     "devDependencies": {
-        "@types/node": "~24.0.1"
+        "@types/node": "~24.0.3"
     }
 }
