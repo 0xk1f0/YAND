@@ -28,4 +28,4 @@ COPY misc/config.yaml /config
 EXPOSE 8080
 
 # start app
-CMD ["/entrypoint.sh"]
+CMD ["bash" "/entrypoint.sh"]
