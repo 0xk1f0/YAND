@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 export NODE_ENV=production
 export HOST=0.0.0.0
@@ -15,4 +15,4 @@ __  _____    _   ______
 
 echo "[+] Starting Web Application ..."
 
-node /app/dist/server/entry.mjs
+bun run /app/dist/server/entry.mjs

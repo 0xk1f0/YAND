@@ -1,4 +1,4 @@
-FROM docker.io/node:alpine
+FROM oven/bun:alpine
 
 # change workdir
 WORKDIR /app
@@ -8,13 +8,13 @@ astro.config.mjs \
 tsconfig.json ./
 
 # Install dependencies
-RUN npm install
+RUN bun install
 
 # app files
 COPY src ./src
 
 # and build webapp
-RUN npm run build
+RUN bun run build
 
 # necessary paths
 RUN mkdir -p /config
@@ -28,4 +28,4 @@ COPY misc/config.yaml /config
 EXPOSE 8080
 
 # start app
-CMD ["bash" "/entrypoint.sh"]
+CMD ["/entrypoint.sh"]

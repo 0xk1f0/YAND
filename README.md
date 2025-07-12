@@ -27,12 +27,12 @@ To build YAND from source or prepare for development.
 
 ```bash
 git clone https://github.com/0xk1f0/YAND && cd YAND
-npm install
+bun install
 # Build
-npm run build
+bun run build
 # Run dev server
 # $CONFIG can be any example configuration
-CONFIG=./misc/config.yaml npm run dev
+CONFIG=./misc/config.yaml bun run dev
 ```
 
 ## License
