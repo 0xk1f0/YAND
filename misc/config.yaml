@@ -8,9 +8,9 @@ default:
 
 weather:
   enabled: true
-  timezone: 'Europe/Berlin'
-  latitude: '48.2085'
-  longtitude: '16.3721'
+  timezone: "Europe/Berlin"
+  latitude: "48.2085"
+  longtitude: "16.3721"
 
 services:
   - name: "Example Category"

@@ -13,9 +13,7 @@ if (error === undefined) return Astro.redirect("/404");
 <ErrorLayout title="500 - Internal Error" }>
     <div class="flex bg-black min-w-screen min-h-screen">
         <div class="text-white text-center max-w-[50%] m-auto font-mono">
-            <h1 class="text-4xl font-bold mb-2">
-                Runtime Error
-            </h1>
+            <h1 class="text-4xl font-bold mb-2">Runtime Error</h1>
             <p class="p-4 text-white bg-gray-900 break-all">
                 {JSON.stringify(error)}
             </p>

@@ -1,33 +1,24 @@
 {
-    "name": "@0xk1f0/yand",
+    "name": "yand",
     "type": "module",
     "version": "0.3.0",
-    "author": "0xk1f0",
+    "private": true,
     "license": "GPL-3.0-only",
-    "main": "dist/server/entry.mjs",
-    "repository": {
-        "url": "https://github.com/0xk1f0/YAND"
-    },
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
         "astro": "astro"
     },
-    "files": [
-        "dist",
-        "LICENSE",
-        "README.md"
-    ],
     "dependencies": {
-        "@astrojs/node": "~9.3.0",
-        "@tailwindcss/vite": "~4.1.11",
-        "arktype": "~2.1.20",
-        "astro": "~5.12.4",
-        "tailwindcss": "~4.1.11",
-        "typescript": "~5.8.3",
-        "yaml": "~2.8.0"
+        "@astrojs/node": "~9.3",
+        "@tailwindcss/vite": "~4.1",
+        "arktype": "~2.1",
+        "astro": "~5.12",
+        "tailwindcss": "~4.1",
+        "typescript": "~5.8",
+        "yaml": "~2.8"
     },
     "devDependencies": {
-        "@types/node": "~24.1.0"
+        "@types/node": "~24.1"
     }
 }

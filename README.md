@@ -12,7 +12,7 @@ To run YAND, you can use either `docker` or `podman`.
 # with docker
 docker compose up -d -f docker-compose.yaml
 # with podman
-podman kube play podman-play.yaml
+podman kube play kube.yaml
 ```
 
 By default, YAND expects the configuration to be placed in `./data/config/` and the icons to be placed in `./data/assets/`, which are the default bind mount locations.
