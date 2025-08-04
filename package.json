@@ -15,7 +15,7 @@
         "arktype": "~2.1",
         "astro": "~5.12",
         "tailwindcss": "~4.1",
-        "typescript": "~5.8",
+        "typescript": "~5.9",
         "yaml": "~2.8"
     },
     "devDependencies": {
