@@ -10,7 +10,7 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/node": "~9.3",
+        "@astrojs/node": "~9.4",
         "@tailwindcss/vite": "~4.1",
         "arktype": "~2.1",
         "astro": "~5.12",
@@ -19,6 +19,6 @@
         "yaml": "~2.8"
     },
     "devDependencies": {
-        "@types/node": "~24.1"
+        "@types/node": "~24.2"
     }
 }
