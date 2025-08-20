@@ -13,7 +13,7 @@
         "@astrojs/node": "~9.4",
         "@tailwindcss/vite": "~4.1",
         "arktype": "~2.1",
-        "astro": "~5.12",
+        "astro": "~5.13",
         "tailwindcss": "~4.1",
         "typescript": "~5.9",
         "yaml": "~2.8"
