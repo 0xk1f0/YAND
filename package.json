@@ -10,15 +10,15 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/node": "~9.5",
+        "@astrojs/node": "~10.0",
         "@tailwindcss/vite": "~4.2",
         "arktype": "~2.2",
-        "astro": "~5.18",
+        "astro": "~6.0",
         "tailwindcss": "~4.2",
         "typescript": "~5.9",
         "yaml": "~2.8"
     },
     "devDependencies": {
-        "@types/node": "~25.3"
+        "@types/node": "~25.5"
     }
 }
